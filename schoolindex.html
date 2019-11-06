@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+
+/* Main Container */
+@media screen and (min-width: 601px) {
+        .main-container {
+            display: grid;
+            grid-template-rows: [top] 1fr [bottom];
+            grid-template-columns: [start] 3fr [middle] 1fr [end];
+            column-gap: 1em;
+            align-items: start;
+            
+            /* Styling */
+            /* background-color: blue; */
+            /* margin-top: 100px; */
+        }
+    }
+       
+        .logo{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .logo .text{
+            background-color: red;
+        }
+        .logo .picture{
+            background-color: orange;
+        }
+
+        .main-container main {    
+            background-color: green;       
+            grid-row: top / bottom;
+            grid-column: start / middle;
+            height: 100px;
+        }
+
+        .main-container aside {
+            row-gap: 1em;
+            background-color: yellow;
+            grid-row:  top / bottom;
+            grid-column:  middle / end;
+        }
+
+        .main-container aside section {
+            padding:12px;
+        }
+
+        @media screen and (max-width: 601px) {
+            .main-container {
+                grid-template-rows:  repeat(2,auto);
+                grid-template-areas:
+                    "main"
+                    "aside";
+            }
+        }
+
+         @media screen and (min-width: 601px) {
+            .footer-container {
+                grid-template-rows:  1fr  1fr 1fr;
+                grid-template-columns: auto;
+                grid-template-areas:
+                    "footer-links"
+                    "footer-logo"
+                    "footer-copyright";
+            }
+        }
+         .footer-container section {
+            background-color: #ccc;
+            padding: 12px;
+        }
+
+        .footer-container .footer-logo {
+            grid-area: footer-logo;
+            background: #ddd;
+        }
+
+        .footer-container .footer-copyright {
+            grid-area: footer-copyright;
+            background: #aaa;
+        }
+
+        .footer-container .footer-links {
+            grid-area: footer-links;
+        }
+        .mainClass{
+            grid-area:main;
+        }
+        .asideClass{
+            grid-area:aside
+        }
+        
+
+        </style>
+</head>
+<body>
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Responsive Design</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Start <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="flexbox_vs_grid.html">Flexbox / Grid</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="fonts.html">Fonts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="responsive_image_picture.html">Images</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="svg.html">SVG</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container logo">
+       <section class="text">text</section>
+       <section class="picture">picture</section>
+    </div>
+    <div class="container main-container">
+        <main class="mainClass">blub</main>
+        <aside class="asideClass">
+            <section>search</section>
+            <section>news</section>
+            <section>news</section>
+        </aside>
+
+    </div>
+    <footer class="container footer-container">
+        <section class="footer-links">links</section>
+        <section class="footer-logo">logo</section>
+        <section>copyright</section>
+    </footer>
+</body>
+</html>
